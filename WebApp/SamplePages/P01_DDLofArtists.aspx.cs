@@ -13,5 +13,10 @@ namespace WebApp.SamplePages
         {
 
         }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            // 1000: Finish this code to access selected values.
+        }
     }
 }
