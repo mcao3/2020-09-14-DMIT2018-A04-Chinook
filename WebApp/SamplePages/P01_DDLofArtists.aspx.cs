@@ -20,9 +20,9 @@ namespace WebApp.SamplePages
             var selectedindex = DropDownList1.SelectedIndex;
             var selectedvalue = DropDownList1.SelectedValue;
             var selecteditem = DropDownList1.SelectedItem;
-            MessageLabel.Text = $"SelectedIndex:{selectedindex} " +
-                                $" SelectedValue:{selectedvalue} " +
-                                $" SelectedItem:{selecteditem}";
+            MessageLabel.Text = $"SelectedIndex: {selectedindex}  " +
+                                $" SelectedValue: {selectedvalue}  " +
+                                $" SelectedItem: {selecteditem}";
         }
     }
 }
