@@ -61,11 +61,15 @@
                                     runat="server" style="color:black"
                                     aria-haspopup="true" aria-expanded="false"> 
                                 Samples</a>
-                                <div class="dropdown-menu" aria-labelledby="navbarSubMenu">
+                                <div class="dropdown-menu" aria-labelledby="navbarSubMenu">                                   
                                     <a class="dropdown-item"
                                         href="~/SamplePages/TestPage1.aspx"
                                         style="color:black" runat="server">
                                    TestPage1-Hello World</a>
+                                    <a class="dropdown-item"
+                                        href="~/SamplePages/P01_DDLofArtists.aspx"
+                                        style="color:black" runat="server">
+                                   P01_DDLofArtists</a>
                                 </div>
                             </li>
                             <li class="nav-item">
