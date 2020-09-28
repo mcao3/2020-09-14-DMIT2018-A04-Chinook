@@ -1,4 +1,6 @@
-﻿using System;
+﻿// ViewModle is to use the data
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.VIEWMODELS
 {
-    class ArtistViewModel
+    public class ArtistViewModel
     {
+        public int ArtistId { get; set; }
+        public string ArtistName { get; set; }
     }
 }
