@@ -9,6 +9,6 @@ namespace ChinookSystem.VIEWMODELS
     public class ArtistViewModel
     {
         public int ArtistId { get; set; }
-        public string ArtistName { get; set; }
+        public string ArtistName { get; set; } // Here "ArtistName" is to use the data
     }
 }

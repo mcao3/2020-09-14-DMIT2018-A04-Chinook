@@ -32,7 +32,7 @@ namespace ChinookSystem.ENTITIES
         //validation anotation
         [Required(ErrorMessage = "Artist Name is required")]
         [StringLength(120, ErrorMessage = "Artist name is limited to 120 characters")]
-        public string Name { get; set; }
+        public string Name { get; set; } // Here "Name" is to store the data
 
         //navigational properties
         //part of a relationship to table Albums
