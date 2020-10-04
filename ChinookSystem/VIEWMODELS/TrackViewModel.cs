@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ChinookSystem.VIEWMODELS
 {
-    class TrackViewModel
+    public class TrackViewModel
     {
+        public string TrackName { get; set; }
+        public string TrackComposer { get; set; }
+        public int TrackMilliseconds { get; set; }
+        public int? TrackBytes { get; set; }
+        public decimal TrackUnitPrice { get; set; }
     }
 }

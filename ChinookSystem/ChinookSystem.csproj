@@ -57,7 +57,7 @@
     <Compile Include="DAL\ChinookSystemContext.cs" />
     <Compile Include="ENTITIES\Album.cs" />
     <Compile Include="ENTITIES\Artist.cs" />
-    <Compile Include="ENTITIES\Trackcs.cs" />
+    <Compile Include="ENTITIES\Tracks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VIEWMODELS\AlbumViewModel.cs" />
     <Compile Include="VIEWMODELS\ArtistViewModel.cs" />
