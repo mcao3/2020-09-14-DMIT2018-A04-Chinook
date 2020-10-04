@@ -8,8 +8,32 @@
     </div>
     <br />
     <div class="row">
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="ChinookSystem.VIEWMODELS.AlbumViewModel" DeleteMethod="Albums_Delete" InsertMethod="Albums_Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="Albums_List" TypeName="ChinookSystem.BLL.AlbumController" UpdateMethod="Albums_Update"></asp:ObjectDataSource>
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1" InsertItemPosition="LastItem" DataKeyNames="AlbumId">
+
+        <%-- Object Data Source --%>
+        <asp:ObjectDataSource 
+            ID="ObjectDataSource1" 
+            runat="server" 
+            DataObjectTypeName="ChinookSystem.VIEWMODELS.AlbumViewModel" 
+            DeleteMethod="Albums_Delete" 
+            InsertMethod="Albums_Insert" 
+            OldValuesParameterFormatString="original_{0}" 
+            SelectMethod="Albums_List" 
+            TypeName="ChinookSystem.BLL.AlbumController" 
+            UpdateMethod="Albums_Update" 
+            OnDeleted="CheckForException" 
+            OnInserted="CheckForException" 
+            OnSelected="CheckForException" 
+            OnUpdated="CheckForException">
+        </asp:ObjectDataSource>
+
+        <%-- List View --%>
+        <asp:ListView 
+            ID="ListView1" 
+            runat="server" 
+            DataSourceID="ObjectDataSource1" 
+            InsertItemPosition="LastItem" 
+            DataKeyNames="AlbumId">
+            <%-- Alternating--%>
             <AlternatingItemTemplate>
                 <tr style="background-color: #FFF8DC;">
                     <td>
@@ -17,7 +41,7 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
                     <td>
                         <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
                     <td>
@@ -28,6 +52,7 @@
                         <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" /></td>
                 </tr>
             </AlternatingItemTemplate>
+            <%-- Edit --%>
             <EditItemTemplate>
                 <tr style="background-color: #008A8C; color: #FFFFFF;">
                     <td>
@@ -35,13 +60,13 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" /></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox"  TextMode="Number"/></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" /></td>
                 </tr>
@@ -53,6 +78,7 @@
                     </tr>
                 </table>
             </EmptyDataTemplate>
+            <%-- Insert --%>
             <InsertItemTemplate>
                 <tr style="">
                     <td>
@@ -60,17 +86,18 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" /></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox"  TextMode="Number"/></td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/></td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" /></td>
                 </tr>
             </InsertItemTemplate>
+            <%-- Item --%>
             <ItemTemplate>
                 <tr style="background-color: #DCDCDC; color: #000000;">
                     <td>
@@ -78,7 +105,7 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
                     <td>
                         <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
                     <td>
@@ -89,6 +116,7 @@
                         <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" /></td>
                 </tr>
             </ItemTemplate>
+            <%-- Layout --%>
             <LayoutTemplate>
                 <table runat="server">
                     <tr runat="server">
@@ -108,7 +136,7 @@
                     </tr>
                     <tr runat="server">
                         <td runat="server" style="text-align: center; background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif; color: #000000;">
-                            <asp:DataPager runat="server" ID="DataPager1">
+                            <asp:DataPager runat="server" ID="DataPager1" PageSize="5">
                                 <Fields>
                                     <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False"></asp:NextPreviousPagerField>
                                     <asp:NumericPagerField></asp:NumericPagerField>
@@ -119,6 +147,7 @@
                     </tr>
                 </table>
             </LayoutTemplate>
+            <%-- Selected --%>
             <SelectedItemTemplate>
                 <tr style="background-color: #008A8C; font-weight: bold; color: #FFFFFF;">
                     <td>
@@ -126,7 +155,7 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
                     <td>
                         <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
                     <td>
