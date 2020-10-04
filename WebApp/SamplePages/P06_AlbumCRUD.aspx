@@ -11,7 +11,7 @@
 
         <%-- Object Data Source --%>
         <asp:ObjectDataSource 
-            ID="ObjectDataSource1" 
+            ID="AlbumODS" 
             runat="server" 
             DataObjectTypeName="ChinookSystem.VIEWMODELS.AlbumViewModel" 
             DeleteMethod="Albums_Delete" 
@@ -30,7 +30,7 @@
         <asp:ListView 
             ID="ListView1" 
             runat="server" 
-            DataSourceID="ObjectDataSource1" 
+            DataSourceID="AlbumODS" 
             InsertItemPosition="LastItem" 
             DataKeyNames="AlbumId">
             <%-- Alternating--%>
@@ -41,15 +41,29 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("ArtistId") %>' runat="server" ID="ArtistIdLabel" /></td>
+                        <asp:DropDownList 
+                            ID="DropDownList1" 
+                            runat="server" 
+                            DataSourceID="ArtistODS" 
+                            DataTextField="ArtistName" 
+                            DataValueField="ArtistId" 
+                            selectedvalue='<%# Eval("ArtistId") %>' 
+                            Width="300" 
+                            Enabled="false">
+                        </asp:DropDownList>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" />
+                    </td>
                 </tr>
             </AlternatingItemTemplate>
             <%-- Edit --%>
@@ -60,15 +74,29 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Cancel" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/>
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" />
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox"  TextMode="Number"/></td>
+                        <asp:DropDownList 
+                            ID="DropDownList1" 
+                            runat="server" 
+                            DataSourceID="ArtistODS" 
+                            DataTextField="ArtistName" 
+                            DataValueField="ArtistId" 
+                            selectedvalue='<%# Bind("ArtistId") %>' 
+                            Width="300" 
+                            Enabled="true">
+                        </asp:DropDownList>
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/>
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" />
+                    </td>
                 </tr>
             </EditItemTemplate>
             <EmptyDataTemplate>
@@ -86,15 +114,28 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/></td>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/>
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" />
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("ArtistId") %>' runat="server" ID="ArtistIdTextBox"  TextMode="Number"/></td>
+                        <asp:DropDownList 
+                            ID="DropDownList1" 
+                            runat="server" 
+                            DataSourceID="ArtistODS" 
+                            DataTextField="ArtistName" 
+                            DataValueField="ArtistId" 
+                            selectedvalue='<%# Bind("ArtistId") %>' 
+                            Width="300" 
+                            Enabled="true">
+                        </asp:DropDownList>                    
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearTextBox" TextMode="Number"/>
+                    </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" /></td>
+                        <asp:TextBox Text='<%# Bind("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelTextBox" />
+                    </td>
                 </tr>
             </InsertItemTemplate>
             <%-- Item --%>
@@ -105,15 +146,29 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("ArtistId") %>' runat="server" ID="ArtistIdLabel" /></td>
+                        <asp:DropDownList 
+                            ID="DropDownList1" 
+                            runat="server" 
+                            DataSourceID="ArtistODS" 
+                            DataTextField="ArtistName" 
+                            DataValueField="ArtistId" 
+                            selectedvalue='<%# Eval("ArtistId") %>' 
+                            Width="300" 
+                            Enabled="false">
+                        </asp:DropDownList>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" />
+                    </td>
                 </tr>
             </ItemTemplate>
             <%-- Layout --%>
@@ -155,15 +210,29 @@
                         <asp:Button runat="server" CommandName="Edit" Text="Edit" ID="EditButton" />
                     </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/></td>
+                        <asp:Label Text='<%# Eval("AlbumId") %>' runat="server" ID="AlbumIdLabel" width="50px"/>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumTitle") %>' runat="server" ID="AlbumTitleLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("ArtistId") %>' runat="server" ID="ArtistIdLabel" /></td>
+                        <asp:DropDownList 
+                            ID="DropDownList1" 
+                            runat="server" 
+                            DataSourceID="ArtistODS" 
+                            DataTextField="ArtistName" 
+                            DataValueField="ArtistId" 
+                            selectedvalue='<%# Eval("ArtistId") %>' 
+                            Width="300" 
+                            Enabled="false">
+                        </asp:DropDownList>
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseYear") %>' runat="server" ID="AlbumReleaseYearLabel" />
+                    </td>
                     <td>
-                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" /></td>
+                        <asp:Label Text='<%# Eval("AlbumReleaseLabel") %>' runat="server" ID="AlbumReleaseLabelLabel" />
+                    </td>
                 </tr>
             </SelectedItemTemplate>
         </asp:ListView>
@@ -173,4 +242,5 @@
         <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
     </div>
     <br />
+    <asp:ObjectDataSource ID="ArtistODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Artist_List" TypeName="ChinookSystem.BLL.ArtistController"></asp:ObjectDataSource>
 </asp:Content>
