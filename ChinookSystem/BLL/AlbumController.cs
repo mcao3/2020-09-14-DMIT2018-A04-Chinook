@@ -63,7 +63,8 @@ namespace ChinookSystem.BLL
         [DataObjectMethod(DataObjectMethodType.Insert, false)]
         public void Albums_Insert(AlbumViewModel item) // Presentation Layer
         {
-            DataValidation(item);
+            
+            DataValidation(item); // The validation happens to === context.SaveChanges();
             using (var context = new ChinookSystemContext())
             {
                 Album info = new Album()
@@ -74,7 +75,7 @@ namespace ChinookSystem.BLL
                     ReleaseLabel = item.AlbumReleaseLabel
                 };
                 context.Albums.Add(info);
-                context.SaveChanges();
+                context.SaveChanges(); // The validation happens to here
             }
         }
 

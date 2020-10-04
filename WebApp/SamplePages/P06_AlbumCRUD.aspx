@@ -7,8 +7,8 @@
         <h2>Alubm CRUD</h2>
     </div>
     <br />
-    <div class="row">
 
+    <div class="row">
         <%-- Object Data Source --%>
         <asp:ObjectDataSource 
             ID="AlbumODS" 
@@ -19,11 +19,13 @@
             OldValuesParameterFormatString="original_{0}" 
             SelectMethod="Albums_List" 
             TypeName="ChinookSystem.BLL.AlbumController" 
-            UpdateMethod="Albums_Update" 
-            OnDeleted="CheckForException" 
-            OnInserted="CheckForException" 
-            OnSelected="CheckForException" 
-            OnUpdated="CheckForException">
+            UpdateMethod="Albums_Update"              
+            OnDeleted="DeleteCheckForException" 
+            OnInserted="InsertCheckForException" 
+            OnSelected="SelectCheckForException" 
+            OnUpdated="UpdateCheckForException">
+            <%-- OnDeleted, OnInserted, OnSelected, Onupdated run the same command --%>
+            <%-- P06_AlbumCRUD.aspx.cs --%>
         </asp:ObjectDataSource>
 
         <%-- List View --%>
@@ -99,6 +101,7 @@
                     </td>
                 </tr>
             </EditItemTemplate>
+            <%-- Empty Data --%>
             <EmptyDataTemplate>
                 <table runat="server" style="background-color: #FFFFFF; border-collapse: collapse; border-color: #999999; border-style: none; border-width: 1px;">
                     <tr>
@@ -114,7 +117,7 @@
                         <asp:Button runat="server" CommandName="Cancel" Text="Clear" ID="CancelButton" />
                     </td>
                     <td>
-                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" width="50px"/>
+                        <asp:TextBox Text='<%# Bind("AlbumId") %>' runat="server" ID="AlbumIdTextBox" TextMode="Number" width="50px"/>
                     </td>
                     <td>
                         <asp:TextBox Text='<%# Bind("AlbumTitle") %>' runat="server" ID="AlbumTitleTextBox" />
@@ -238,9 +241,12 @@
         </asp:ListView>
     </div>
     <br />
+
     <div class="row">
         <uc1:MessageUserControl runat="server" ID="MessageUserControl" />
     </div>
     <br />
+
+    <%-- Object Data Source === Artist --%>
     <asp:ObjectDataSource ID="ArtistODS" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="Artist_List" TypeName="ChinookSystem.BLL.ArtistController"></asp:ObjectDataSource>
 </asp:Content>
