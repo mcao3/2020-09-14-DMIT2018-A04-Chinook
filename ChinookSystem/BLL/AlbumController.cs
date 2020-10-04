@@ -22,7 +22,7 @@ namespace ChinookSystem.BLL
         {
             using (var context = new ChinookSystemContext())
             {
-                var results = from x in context.Albums // from x means from every backend
+                var results = from x in context.Albums
                               select new AlbumViewModel
                               {
                                   AlbumId = x.AlbumId,
@@ -34,7 +34,6 @@ namespace ChinookSystem.BLL
                 return results.ToList();
             }
         }
-
         [DataObjectMethod(DataObjectMethodType.Select, false)]
         public List<AlbumViewModel> AlbumsByArtist(int artistid)
         {
@@ -61,10 +60,9 @@ namespace ChinookSystem.BLL
         //attribute to your ListView so that Delete will work
 
         [DataObjectMethod(DataObjectMethodType.Insert, false)]
-        public void Albums_Insert(AlbumViewModel item) // Presentation Layer
+        public void Albums_Insert(AlbumViewModel item)
         {
-            
-            DataValidation(item); // The validation happens to === context.SaveChanges();
+            DataValidation(item);
             using (var context = new ChinookSystemContext())
             {
                 Album info = new Album()
@@ -75,7 +73,7 @@ namespace ChinookSystem.BLL
                     ReleaseLabel = item.AlbumReleaseLabel
                 };
                 context.Albums.Add(info);
-                context.SaveChanges(); // The validation happens to here
+                context.SaveChanges();
             }
         }
 
@@ -130,7 +128,5 @@ namespace ChinookSystem.BLL
                     item.AlbumReleaseYear, DateTime.Today.Year));
         }
         #endregion
-
-
     }
 }
