@@ -72,6 +72,7 @@
     <Compile Include="ENTITIES\Invoice.cs" />
     <Compile Include="ENTITIES\InvoiceLine.cs" />
     <Compile Include="ENTITIES\MediaType.cs" />
+    <Compile Include="ENTITIES\Model1.cs" />
     <Compile Include="ENTITIES\OLDAlbum.cs" />
     <Compile Include="ENTITIES\OLDArtist.cs" />
     <Compile Include="ENTITIES\OLDTrack.cs" />

@@ -6,7 +6,7 @@
     <%-- Label --%>
     <asp:Label ID="Label1" runat="server" Text="Select an Artist"></asp:Label>
     <%-- Dropdown List --%>
-    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="ArtistName" DataValueField="ArtistId" Width="514px" AppendDataBoundItems="True">
+    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="ObjectDataSource1" DataTextField="NameAndId" DataValueField="ArtistId" Width="514px" AppendDataBoundItems="True">
         <asp:ListItem Value="0">Select...</asp:ListItem>
     </asp:DropDownList>
     <%-- Link Button --%>

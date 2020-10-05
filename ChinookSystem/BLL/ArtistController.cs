@@ -32,7 +32,9 @@ namespace ChinookSystem.BLL
                               select new ArtistViewModel
                               {
                                   ArtistId = x.ArtistId,
-                                  ArtistName = x.Name
+                                  ArtistName = x.Name, 
+                                  NameAndId = x.Name + " ( " + x.ArtistId + ")"
+                                  // Pretend Customer Name
                               };
                 return results.OrderBy(x => x.ArtistName).ToList();
             }
