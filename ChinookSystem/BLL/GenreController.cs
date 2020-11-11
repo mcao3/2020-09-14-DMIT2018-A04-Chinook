@@ -16,21 +16,19 @@ using System.ComponentModel;
 namespace ChinookSystem.BLL
 {
     [DataObject]
-    public class TrackController
+    public class GenreController
     {
         [DataObjectMethod(DataObjectMethodType.Select, false)]
-        public List<TrackViewModel> Track_List()
+        public List<SelectionList> List_GenreNames()
         {
             using (var context = new ChinookSystemContext())
             {
-                var results = from x in context.Tracks
-                              select new TrackViewModel
+                var results = from x in context.Genres
+                              orderby x.Name
+                              select new SelectionList
                               {
-                                  TrackName = x.Name,
-                                  TrackComposer = x.Composer,
-                                  TrackMilliseconds = x.Milliseconds,
-                                  TrackBytes = x.Bytes,
-                                  TrackUnitPrice = x.UnitPrice
+                                  IDValueField = x.GenreId,
+                                  DisplayText = x.Name
                               };
                 return results.ToList();
             }

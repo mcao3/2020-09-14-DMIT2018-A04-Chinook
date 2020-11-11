@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 #region Additional Namespaces
-using ChinookSystem.ENTITIES;
 using ChinookSystem.DAL;
+using ChinookSystem.ENTITIES;
 using ChinookSystem.VIEWMODELS;
 using System.Data.Entity;
 using System.Data.SqlClient;
