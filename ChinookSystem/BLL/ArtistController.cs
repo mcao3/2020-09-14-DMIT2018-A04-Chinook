@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-//Additonal Namespaces
+#region Additional Namespaces
 using System.ComponentModel;
-using ChinookSystem.VIEWMODELS;
+using System.Data.Entity;
+using System.Data.SqlClient;
 using ChinookSystem.DAL;
+using ChinookSystem.VIEWMODELS;
+using ChinookSystem.ENTITIES;
+#endregion
 
 namespace ChinookSystem.BLL
 {
